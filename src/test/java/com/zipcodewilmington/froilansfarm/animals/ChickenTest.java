@@ -1,7 +1,7 @@
 package com.zipcodewilmington.froilansfarm.animals;
 
-import com.zipcodewilmington.froilansfarm.Chicken;
-import com.zipcodewilmington.froilansfarm.Edible;
+import com.zipcodewilmington.froilansfarm.animal.Chicken;
+import com.zipcodewilmington.froilansfarm.animal.Edible;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

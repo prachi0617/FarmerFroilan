@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.crops;
 
-import com.zipcodewilmington.froilansfarm.Crop;
+import com.zipcodewilmington.froilansfarm.crop.Crop;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
