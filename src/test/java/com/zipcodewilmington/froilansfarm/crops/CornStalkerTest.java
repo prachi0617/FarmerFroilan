@@ -1,5 +1,5 @@
 package com.zipcodewilmington.froilansfarm.crops;
 
-public class TomatoPlantTest {
-
+public class CornStalkerTest {
+    
 }
