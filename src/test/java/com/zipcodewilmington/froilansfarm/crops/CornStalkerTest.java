@@ -9,27 +9,30 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CornStalkerTest {
 
     @Test
-    public void cornStalkShouldExistTest() {
-        CornStalk cornStalk = new CornStalk(false);
+    public void cornStalkShouldNotYieldWhenNotFertilizedAndNotHarvestedTest() {
+        CornStalk cornStalk = new CornStalk(false, false);
 
-        assertNotNull(cornStalk);
+        assertNull(cornStalk.yield());
     }
 
     @Test
-    public void cornStalkShouldYieldCornWhenNotFertilizedTest() {
-        CornStalk cornStalk = new CornStalk(false);
+    public void cornStalkShouldNotYieldWhenFertilizedButNotHarvestedTest() {
+        CornStalk cornStalk = new CornStalk(true, false);
 
-        Edible edible = cornStalk.yield();
-
-        assertNotNull(edible);
+        assertNull(cornStalk.yield());
     }
 
     @Test
-    public void cornStalkShouldNotYieldCornWhenFertilizedTest() {
-        CornStalk cornStalk = new CornStalk(true);
+    public void cornStalkShouldNotYieldWhenHarvestedButNotFertilizedTest() {
+        CornStalk cornStalk = new CornStalk(false, true);
 
-        Edible edible = cornStalk.yield();
+        assertNull(cornStalk.yield());
+    }
 
-        assertNull(edible);
+    @Test
+    public void cornStalkShouldYieldEarCornWhenFertilizedAndHarvestedTest() {
+        CornStalk cornStalk = new CornStalk(true, true);
+
+        assertNotNull(cornStalk.yield());
     }
 }

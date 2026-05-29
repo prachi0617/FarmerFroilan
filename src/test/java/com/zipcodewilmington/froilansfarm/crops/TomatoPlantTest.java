@@ -9,27 +9,30 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TomatoPlantTest {
 
     @Test
-    public void tomatoPlantShouldExistTest() {
-        TomatoPlant tomatoPlant = new TomatoPlant(false);
+    public void tomatoPlantShouldNotYieldWhenNotFertilizedAndNotHarvestedTest() {
+        TomatoPlant tomatoPlant = new TomatoPlant(false, false);
 
-        assertNotNull(tomatoPlant);
+        assertNull(tomatoPlant.yield());
     }
 
     @Test
-    public void tomatoPlantShouldYieldTomatoWhenNotFertilizedTest() {
-        TomatoPlant tomatoPlant = new TomatoPlant(false);
+    public void tomatoPlantShouldNotYieldWhenFertilizedButNotHarvestedTest() {
+        TomatoPlant tomatoPlant = new TomatoPlant(true, false);
 
-        Edible edible = tomatoPlant.yield();
-
-        assertNotNull(edible);
+        assertNull(tomatoPlant.yield());
     }
 
     @Test
-    public void tomatoPlantShouldNotYieldTomatoWhenFertilizedTest() {
-        TomatoPlant tomatoPlant = new TomatoPlant(true);
+    public void tomatoPlantShouldNotYieldWhenHarvestedButNotFertilizedTest() {
+        TomatoPlant tomatoPlant = new TomatoPlant(false, true);
 
-        Edible edible = tomatoPlant.yield();
+        assertNull(tomatoPlant.yield());
+    }
 
-        assertNull(edible);
+    @Test
+    public void tomatoPlantShouldYieldTomatoWhenFertilizedAndHarvestedTest() {
+        TomatoPlant tomatoPlant = new TomatoPlant(true, true);
+
+        assertNotNull(tomatoPlant.yield());
     }
 }
