@@ -8,43 +8,35 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CropTest {
 
     @Test
-    public void cropCanBeFertilizedTest() {
+    void cropCanBeFertilized() {
         Crop crop = new CornStalk(false);
-
         crop.fertilize();
-
         assertTrue(crop.hasBeenFertilized());
     }
 
     @Test
-    public void cropStartsUnfertilizedTest() {
+    void cropStartsUnfertilized() {
         Crop crop = new CornStalk(false);
-
         assertFalse(crop.hasBeenFertilized());
     }
 
     @Test
-    public void cropStartsUnharvestedTest() {
+    void cropStartsUnharvested() {
         Crop crop = new CornStalk(false);
-
         assertFalse(crop.hasBeenHarvested());
     }
 
     @Test
-    public void cropCanBeHarvestedTest() {
+    void cropCanBeHarvested() {
         Crop crop = new CornStalk(false);
-
         crop.harvest();
-
         assertTrue(crop.hasBeenHarvested());
     }
 
     @Test
-    public void unfertilizedCropDoesNotYieldTest() {
+    void unfertilizedCropDoesNotYield() {
         Crop crop = new CornStalk(false);
-
         Edible result = crop.yield();
-
         assertNull(result);
     }
 }
