@@ -1,6 +1,9 @@
 package com.zipcodewilmington.froilansfarm.animals;
 
-import com.zipcodewilmington.froilansfarm.animal.Horse;
+import com.zipcodewilmington.froilansfarm.Corn;
+import com.zipcodewilmington.froilansfarm.Edible;
+import com.zipcodewilmington.froilansfarm.Horse;
+import com.zipcodewilmington.froilansfarm.Rideable;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,14 +22,36 @@ public class HorseTest {
     @Test
     public void horseShouldEatEdibleTest() {
         Horse horse = new Horse();
+        Edible corn = new Corn();
 
-        assertTrue(horse instanceof Horse);
+        horse.eat(corn);
+
+        assertTrue(horse.hasEaten());
     }
 
     @Test
     public void horseShouldBeRideableTest() {
         Horse horse = new Horse();
 
-        assertNotNull(horse);
+        assertTrue(horse instanceof Rideable);
+    }
+
+    @Test
+    public void horseShouldBeMountedTest() {
+        Horse horse = new Horse();
+
+        horse.beMounted();
+
+        assertTrue(horse.isMounted());
+    }
+
+    @Test
+    public void horseShouldBeDismountedTest() {
+        Horse horse = new Horse();
+
+        horse.beMounted();
+        horse.beDismounted();
+
+        assertFalse(horse.isMounted());
     }
 }
