@@ -1,23 +1,17 @@
 package com.zipcodewilmington.froilansfarm.animal;
 
-public class Chicken extends Animal implements Produce {
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
-    private boolean hasBeenFertilized;
+public class Chicken extends Animal {
+
+    private boolean fertilized;
 
     public Chicken() {
-        this.hasBeenFertilized = false;
+        this.fertilized = false;
     }
 
-    public Chicken(boolean hasBeenFertilized) {
-        this.hasBeenFertilized = hasBeenFertilized;
-    }
-
-    public boolean hasBeenFertilized() {
-        return hasBeenFertilized;
-    }
-
-    public void setHasBeenFertilized(boolean hasBeenFertilized) {
-        this.hasBeenFertilized = hasBeenFertilized;
+    public Chicken(boolean fertilized) {
+        this.fertilized = fertilized;
     }
 
     @Override
@@ -25,12 +19,11 @@ public class Chicken extends Animal implements Produce {
         return "Cluck";
     }
 
-    @Override
     public Edible yield() {
-        if (!hasBeenFertilized) {
-            return new EdibleEgg();
+        if (fertilized) {
+            return null;
         }
 
-        return null;
+        return new Egg();
     }
 }

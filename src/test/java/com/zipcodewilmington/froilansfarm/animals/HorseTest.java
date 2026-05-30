@@ -1,9 +1,9 @@
 package com.zipcodewilmington.froilansfarm.animals;
 
-import com.zipcodewilmington.froilansfarm.Corn;
-import com.zipcodewilmington.froilansfarm.Edible;
-import com.zipcodewilmington.froilansfarm.Horse;
-import com.zipcodewilmington.froilansfarm.Rideable;
+import com.zipcodewilmington.froilansfarm.animal.Egg;
+import com.zipcodewilmington.froilansfarm.animal.Horse;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,9 +22,9 @@ public class HorseTest {
     @Test
     public void horseShouldEatEdibleTest() {
         Horse horse = new Horse();
-        Edible corn = new Corn();
+        Edible edible = new Egg();
 
-        horse.eat(corn);
+        horse.eat(edible);
 
         assertTrue(horse.hasEaten());
     }

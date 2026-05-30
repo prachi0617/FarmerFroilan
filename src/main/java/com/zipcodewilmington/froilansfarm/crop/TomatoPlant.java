@@ -1,16 +1,19 @@
 package com.zipcodewilmington.froilansfarm.crop;
 
-import com.zipcodewilmington.froilansfarm.animal.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
-public class TomatoPlant {
+public class TomatoPlant extends Crop {
 
-    private final boolean hasBeenFertilized;
-
-    public TomatoPlant(boolean hasBeenFertilized) {
-        this.hasBeenFertilized = hasBeenFertilized;
+    public TomatoPlant(boolean fertilized, boolean harvested) {
+        super(fertilized, harvested);
     }
 
+    @Override
     public Edible yield() {
-        return hasBeenFertilized ? null : new Tomato();
+        if (hasBeenFertilized() && hasBeenHarvested()) {
+            return new Tomato();
+        }
+
+        return null;
     }
 }

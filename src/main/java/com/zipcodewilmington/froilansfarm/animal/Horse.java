@@ -1,6 +1,15 @@
 package com.zipcodewilmington.froilansfarm.animal;
 
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+
 public class Horse extends Animal implements Rideable {
+
+    private boolean mounted;
+
+    public Horse() {
+        this.mounted = false;
+    }
 
     @Override
     public String makeNoise() {
@@ -8,7 +17,25 @@ public class Horse extends Animal implements Rideable {
     }
 
     @Override
-    public void ride() {
-        System.out.println("Riding the horse");
+    public void beMounted(Rider rider) {
+        this.mounted = true;
+    }
+
+    public void beMounted() {
+        this.beMounted((Rider) null);
+    }
+
+    @Override
+    public void beDismounted(Rider rider) {
+        this.mounted = false;
+    }
+
+    public void beDismounted() {
+        this.beDismounted((Rider) null);
+    }
+
+    @Override
+    public boolean isMounted() {
+        return mounted;
     }
 }
