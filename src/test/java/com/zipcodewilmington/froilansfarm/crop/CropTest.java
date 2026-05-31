@@ -1,4 +1,4 @@
-package com.zipcodewilmington.froilansfarm.crops;
+package com.zipcodewilmington.froilansfarm.crop;
 
 import com.zipcodewilmington.froilansfarm.Edible;
 import org.junit.jupiter.api.Test;
