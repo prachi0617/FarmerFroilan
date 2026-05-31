@@ -3,14 +3,13 @@ package com.zipcodewilmington.froilansfarm.base;
 import com.zipcodewilmington.froilansfarm.base.FarmTestBase;
 import com.zipcodewilmington.froilansfarm.animal.Horse;
 import com.zipcodewilmington.froilansfarm.animal.Chicken;
-
 import com.zipcodewilmington.froilansfarm.crop.CornStalk;
 import com.zipcodewilmington.froilansfarm.crop.TomatoPlant;
-import com.zipcodewilmington.froilansfarm.crop.CropRow;
-
+import com.zipcodewilmington.froilansfarm.farm.ChickenCoop;
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.farm.Field;
+import com.zipcodewilmington.froilansfarm.farm.Stable;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
-
 import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
 
@@ -54,16 +53,13 @@ public abstract class FarmTestBase {
 
         field = new Field();
 
-        cornRow = new CropRow<>();
-        tomatoRow = new CropRow<>();
-
         cropRow1 = new CropRow<>();
         cropRow2 = new CropRow<>();
         cropRow3 = new CropRow<>();
         
-        field.addRow(cropRow1);
-        field.addRow(cropRow2);
-        field.addRow(cropRow3);
+        field.addCropRow(cropRow1);
+        field.addCropRow(cropRow2);
+        field.addCropRow(cropRow3);
 
         farm.setField(field);
 

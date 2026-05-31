@@ -2,14 +2,22 @@ package com.zipcodewilmington.froilansfarm.crop;
 
 import com.zipcodewilmington.froilansfarm.animal.Edible;
 
-public class CornStalk {
-    private final boolean hasBeenFertilized;
+public class CornStalk extends Crop {
 
-    public CornStalk(boolean hasBeenFertilized) {
-        this.hasBeenFertilized = hasBeenFertilized;
+    public CornStalk() {
+        super();
+    }
+
+    public CornStalk(boolean fertilized, boolean harvested) {
+        super(fertilized, harvested);
     }
 
     public Edible yield() {
-        return hasBeenFertilized ? null : new Corn();
+
+        if (hasBeenFertilized() && hasBeenHarvested()) {
+            return new EarCorn();
+        }
+
+        return null;
     }
 }
