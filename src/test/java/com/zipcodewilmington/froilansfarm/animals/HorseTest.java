@@ -1,12 +1,16 @@
 package com.zipcodewilmington.froilansfarm.animals;
 
-import com.zipcodewilmington.froilansfarm.Corn;
-import com.zipcodewilmington.froilansfarm.Edible;
-import com.zipcodewilmington.froilansfarm.Horse;
-import com.zipcodewilmington.froilansfarm.Rideable;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.mock;
 
-import static org.junit.jupiter.api.Assertions.*;
+import com.zipcodewilmington.froilansfarm.animal.Horse;
+import com.zipcodewilmington.froilansfarm.crop.Corn;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class HorseTest {
 
@@ -40,7 +44,8 @@ public class HorseTest {
     public void horseShouldBeMountedTest() {
         Horse horse = new Horse();
 
-        horse.beMounted();
+        Rider rider = mock(Rider.class);
+        horse.beMounted(rider);
 
         assertTrue(horse.isMounted());
     }
@@ -49,8 +54,10 @@ public class HorseTest {
     public void horseShouldBeDismountedTest() {
         Horse horse = new Horse();
 
-        horse.beMounted();
-        horse.beDismounted();
+        Rider rider = mock(Rider.class);
+
+        horse.beMounted(rider);
+        horse.beDismounted(rider);
 
         assertFalse(horse.isMounted());
     }
