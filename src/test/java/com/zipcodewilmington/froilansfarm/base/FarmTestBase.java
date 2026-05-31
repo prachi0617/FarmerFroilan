@@ -1,10 +1,18 @@
 package com.zipcodewilmington.froilansfarm.base;
 
-import com.zipcodewilmington.froilansfarm.animals;
-import com.zipcodewilmington.froilansfarm.crops;
-import com.zipcodewilmington.froilansfarm.farmmembers;
-import com.zipcodewilmington.froilansfarm.farm;
-import com.zipcodewilmington.froilansfarm.vehicles;
+import com.zipcodewilmington.froilansfarm.base.FarmTestBase;
+import com.zipcodewilmington.froilansfarm.animal.Horse;
+import com.zipcodewilmington.froilansfarm.animal.Chicken;
+
+import com.zipcodewilmington.froilansfarm.crop.CornStalk;
+import com.zipcodewilmington.froilansfarm.crop.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.crop.CropRow;
+
+import com.zipcodewilmington.froilansfarm.farm.Field;
+import com.zipcodewilmington.froilansfarm.farm.Farm;
+
+import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
+import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
 
 import org.junit.jupiter.api.BeforeEach;
 
@@ -20,8 +28,9 @@ public abstract class FarmTestBase {
 
     protected Field field;
 
-    protected CropRow<CornStalk> cornRow;
-    protected CropRow<TomatoPlant> tomatoRow;
+    protected CropRow cropRow1;
+    protected CropRow cropRow2;
+    protected CropRow cropRow3;
 
     protected Stable stable;
     protected ChickenCoop coop;
@@ -48,11 +57,13 @@ public abstract class FarmTestBase {
         cornRow = new CropRow<>();
         tomatoRow = new CropRow<>();
 
-        cornRow.add(new CornStalk(false, false));
-        tomatoRow.add(new TomatoPlant(false, false));
+        cropRow1 = new CropRow<>();
+        cropRow2 = new CropRow<>();
+        cropRow3 = new CropRow<>();
         
-        field.addRow(cornRow);
-        field.addRow(tomatoRow);
+        field.addRow(cropRow1);
+        field.addRow(cropRow2);
+        field.addRow(cropRow3);
 
         farm.setField(field);
 
