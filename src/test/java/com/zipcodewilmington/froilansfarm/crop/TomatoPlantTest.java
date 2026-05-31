@@ -1,10 +1,8 @@
-package com.zipcodewilmington.froilansfarm.crops;
+package com.zipcodewilmington.froilansfarm.crop;
 
-import com.zipcodewilmington.froilansfarm.crop.TomatoPlant;
-import com.zipcodewilmington.froilansfarm.animal.Edible;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class TomatoPlantTest {
 
