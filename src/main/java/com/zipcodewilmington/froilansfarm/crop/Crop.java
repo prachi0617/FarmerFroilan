@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.crop;
 
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+
 public abstract class Crop {
 
     private boolean hasBeenFertilized;
@@ -29,4 +31,6 @@ public abstract class Crop {
     public void harvest() {
         hasBeenHarvested = true;
     }
+
+    public abstract Edible yield();
 }
