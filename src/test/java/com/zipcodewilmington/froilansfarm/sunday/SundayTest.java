@@ -4,6 +4,8 @@ import com.zipcodewilmington.froilansfarm.base.FarmTestBase;
 import com.zipcodewilmington.froilansfarm.crop.CornStalk;
 import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.crop.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.crop.ArbitraryCrop;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

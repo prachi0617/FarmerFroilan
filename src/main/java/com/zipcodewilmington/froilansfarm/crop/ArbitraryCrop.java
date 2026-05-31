@@ -1,8 +1,11 @@
 package com.zipcodewilmington.froilansfarm.crop;
 
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+
 public class ArbitraryCrop extends Crop {
 
-    public ArbitraryCrop() {
-        super();
+    @Override
+    public Edible yield() {
+        return null;
     }
 }
