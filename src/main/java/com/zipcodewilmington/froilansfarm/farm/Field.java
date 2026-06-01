@@ -8,7 +8,7 @@ public class Field {
 
     private final List<CropRow<? extends Crop>> rows = new ArrayList<>();
 
-    public void addRow(CropRow<? extends Crop> row) {
+    public <T extends Crop> void addRow(CropRow<T> row) {
         if (row != null) {
             rows.add(row);
         }

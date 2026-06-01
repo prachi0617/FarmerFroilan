@@ -1,8 +1,9 @@
 package com.zipcodewilmington.froilansfarm.crop;
 
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 
-public abstract class Crop {
+public abstract class Crop implements Produce {
 
     private boolean fertilized;
     private boolean harvested;
@@ -13,7 +14,12 @@ public abstract class Crop {
     }
 
     public void fertilize() {
-        this.fertilized = true;
+        setFertilized(true);
+    }
+
+    @Override
+    public void setFertilized(boolean fertilized) {
+        this.fertilized = fertilized;
     }
 
     public void harvest() {

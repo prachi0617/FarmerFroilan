@@ -1,11 +1,11 @@
 package com.zipcodewilmington.froilansfarm.farmmembers;
 
-import com.zipcodewilmington.froilansfarm.interfaces.Eater;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Person;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
-public abstract class FarmMember implements Rider, Eater {
+public abstract class FarmMember implements Person, Rider {
 
     private final String name;
     private boolean hasEaten;
@@ -24,6 +24,11 @@ public abstract class FarmMember implements Rider, Eater {
         if (edible != null) {
             this.hasEaten = true;
         }
+    }
+
+    @Override
+    public String makeNoise() {
+        return getName() + " says hello";
     }
 
     public boolean hasEaten() {

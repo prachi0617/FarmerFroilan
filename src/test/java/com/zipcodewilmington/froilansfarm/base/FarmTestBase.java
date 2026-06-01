@@ -48,9 +48,6 @@ public abstract class FarmTestBase {
         cornRow = new CropRow<>();
         tomatoRow = new CropRow<>();
 
-        cornRow.add(new CornStalk(false, false));
-        tomatoRow.add(new TomatoPlant(false, false));
-
         field.addRow(cornRow);
         field.addRow(tomatoRow);
 

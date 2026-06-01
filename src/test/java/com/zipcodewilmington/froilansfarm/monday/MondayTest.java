@@ -16,6 +16,9 @@ public class MondayTest extends FarmTestBase {
 
     @Test
     void everyCropRowIsFertilizedAfterCropDusterPass() {
+        cornRow.add(new com.zipcodewilmington.froilansfarm.crop.CornStalk(false, false));
+        tomatoRow.add(new com.zipcodewilmington.froilansfarm.crop.TomatoPlant(false, false));
+
         for (CropRow<? extends Crop> cropRow : farm.getField().getCropRows()) {
             cropDuster.fertilize(cropRow);
             for (Crop crop : cropRow.getCrops()) {

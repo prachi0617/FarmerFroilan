@@ -11,6 +11,9 @@ public class TuesdayTest extends FarmTestBase {
 
     @Test
     void everyCropIsHarvestedAfterTractorRun() {
+        cornRow.add(new com.zipcodewilmington.froilansfarm.crop.CornStalk(false, false));
+        tomatoRow.add(new com.zipcodewilmington.froilansfarm.crop.TomatoPlant(false, false));
+
         for (CropRow<? extends Crop> cropRow : farm.getField().getCropRows()) {
             for (Crop crop : cropRow.getCrops()) {
                 tractor.harvest(crop);

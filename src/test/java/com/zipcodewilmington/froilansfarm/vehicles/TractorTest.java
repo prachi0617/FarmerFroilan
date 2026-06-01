@@ -96,6 +96,9 @@ public class TractorTest extends FarmTestBase {
     @Test
     void froilanHarvestsEntireFieldOnTuesday() {
 
+        cornRow.add(new CornStalk());
+        tomatoRow.add(new TomatoPlant());
+
         Field field = farm.getField();
 
         assertFalse(field.getRows().isEmpty());
