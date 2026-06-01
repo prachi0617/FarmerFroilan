@@ -1,8 +1,8 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
+import com.zipcodewilmington.froilansfarm.crop.Crop;
+import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
-import com.zipcodewilmington.froilansfarm.crops.Crop;
-import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class Tractor extends FarmVehicle {
 
@@ -17,17 +17,28 @@ public class Tractor extends FarmVehicle {
 
     @Override
     public void operate(Farm farm) {
-    }
-
-    @Override
-    public void beMounted(Rider rider) {
-    }
-
-    @Override
-    public void beDismounted(Rider rider) {
+        setOperating(true);
     }
 
     public void harvest(Crop crop) {
-        crop.harvest();
+        if (crop == null) {
+            throw new IllegalArgumentException("Crop cannot be null.");
+        }
+
+        if (!crop.isHarvested()) {
+            crop.harvest();
+        }
+    }
+
+    public void harvestField(Field field) {
+        if (field == null) {
+            return;
+        }
+
+        for (com.zipcodewilmington.froilansfarm.farm.CropRow<?> row : field.getRows()) {
+            for (Crop crop : row.getCrops()) {
+                harvest(crop);
+            }
+        }
     }
 }

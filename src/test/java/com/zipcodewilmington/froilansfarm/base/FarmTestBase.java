@@ -1,10 +1,10 @@
 package com.zipcodewilmington.froilansfarm.base;
 
-import com.zipcodewilmington.froilansfarm.animals;
-import com.zipcodewilmington.froilansfarm.crops;
-import com.zipcodewilmington.froilansfarm.farmmembers;
-import com.zipcodewilmington.froilansfarm.farm;
-import com.zipcodewilmington.froilansfarm.vehicles;
+import com.zipcodewilmington.froilansfarm.animal.*;
+import com.zipcodewilmington.froilansfarm.crop.*;
+import com.zipcodewilmington.froilansfarm.farm.*;
+import com.zipcodewilmington.froilansfarm.farmmembers.*;
+import com.zipcodewilmington.froilansfarm.vehicles.*;
 
 import org.junit.jupiter.api.BeforeEach;
 
@@ -50,7 +50,7 @@ public abstract class FarmTestBase {
 
         cornRow.add(new CornStalk(false, false));
         tomatoRow.add(new TomatoPlant(false, false));
-        
+
         field.addRow(cornRow);
         field.addRow(tomatoRow);
 

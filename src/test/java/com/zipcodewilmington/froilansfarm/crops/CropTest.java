@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.crops;
 
+import com.zipcodewilmington.froilansfarm.crop.CornStalk;
+import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import org.junit.jupiter.api.Test;
 

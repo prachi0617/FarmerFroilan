@@ -4,6 +4,9 @@ import com.zipcodewilmington.froilansfarm.base.FarmTestBase;
 import com.zipcodewilmington.froilansfarm.crop.CornStalk;
 import com.zipcodewilmington.froilansfarm.crop.Crop;
 import com.zipcodewilmington.froilansfarm.crop.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.farm.Field;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -11,8 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.Test;
 
@@ -29,11 +30,16 @@ public class TractorTest extends FarmTestBase {
     void tractorShouldHarvestCropTest() {
         Tractor tractor = new Tractor();
 
-        Crop<?> crop = mock(Crop.class);
+        Crop crop = new Crop(false, false) {
+            @Override
+            public Edible yield() {
+                return null;
+            }
+        };
 
         tractor.harvest(crop);
 
-        verify(crop).harvest();
+        assertTrue(crop.isHarvested());
     }
 
     @Test
@@ -48,12 +54,12 @@ public class TractorTest extends FarmTestBase {
     }
 
     // EDGE CASES
-     @Test
+    @Test
     void tractorMakesNoise() {
         assertEquals("Vroom", tractor.makeNoise());
     }
-    
-    //ALREADY HARVESTED CROP
+
+    // ALREADY HARVESTED CROP
     @Test
     void harvestingAlreadyHarvestedCropDoesNothing() {
         CornStalk crop = new CornStalk();
@@ -65,16 +71,15 @@ public class TractorTest extends FarmTestBase {
         assertTrue(crop.isHarvested());
     }
 
-    //NULL CROP
+    // NULL CROP
     @Test
     void harvestingNullCropThrowsException() {
         assertThrows(
-            IllegalArgumentException.class,
-            () -> tractor.harvest(null)
-        );
+                IllegalArgumentException.class,
+                () -> tractor.harvest(null));
     }
 
-    //GENERIC POLYMORPHISM TEST
+    // GENERIC POLYMORPHISM TEST
     @Test
     void tractorCanHarvestCornAndTomatoes() {
         CornStalk corn = new CornStalk();
@@ -87,7 +92,7 @@ public class TractorTest extends FarmTestBase {
         assertTrue(tomato.isHarvested());
     }
 
-    //INTEGRATION TEST
+    // INTEGRATION TEST
     @Test
     void froilanHarvestsEntireFieldOnTuesday() {
 
@@ -101,7 +106,7 @@ public class TractorTest extends FarmTestBase {
 
             assertFalse(row.getCrops().isEmpty());
 
-            for (Crop<?> crop : row.getCrops()) {
+            for (Crop crop : row.getCrops()) {
                 assertTrue(crop.isHarvested());
             }
         }

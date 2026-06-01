@@ -28,5 +28,13 @@ public abstract class Crop {
         return harvested;
     }
 
+    public boolean isHarvested() {
+        return hasBeenHarvested();
+    }
+
+    public boolean isFertilized() {
+        return hasBeenFertilized();
+    }
+
     public abstract Edible yield();
 }

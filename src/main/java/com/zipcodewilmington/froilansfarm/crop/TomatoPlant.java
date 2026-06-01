@@ -4,6 +4,10 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 
 public class TomatoPlant extends Crop {
 
+    public TomatoPlant() {
+        super(false, false);
+    }
+
     public TomatoPlant(boolean fertilized, boolean harvested) {
         super(fertilized, harvested);
     }

@@ -38,4 +38,8 @@ public class Horse extends Animal implements Rideable {
     public boolean isMounted() {
         return mounted;
     }
+
+    public boolean isOccupied() {
+        return isMounted();
+    }
 }
