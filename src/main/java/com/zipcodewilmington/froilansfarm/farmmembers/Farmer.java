@@ -10,7 +10,7 @@ public class Farmer extends FarmMember implements Botanist {
         super(name);
     }
 
-    public <T extends Crop> void plant(T crop, CropRow<T> cropRow) {
+    public <T extends Crop<?>> void plant(T crop, CropRow<T> cropRow) {
         if (crop != null && cropRow != null) {
             cropRow.add(crop);
         }

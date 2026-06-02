@@ -1,8 +1,6 @@
 package com.zipcodewilmington.froilansfarm.crop;
 
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-
-public class CornStalk extends Crop {
+public class CornStalk extends Crop<EarCorn> {
 
     public CornStalk() {
         super(false, false);
@@ -13,7 +11,7 @@ public class CornStalk extends Crop {
     }
 
     @Override
-    public Edible yield() {
+    public EarCorn yield() {
         if (hasBeenFertilized() && hasBeenHarvested()) {
             return new EarCorn();
         }

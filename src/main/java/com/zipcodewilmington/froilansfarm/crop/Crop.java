@@ -3,7 +3,7 @@ package com.zipcodewilmington.froilansfarm.crop;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 
-public abstract class Crop implements Produce {
+public abstract class Crop<T extends Edible> implements Produce<T> {
 
     private boolean fertilized;
     private boolean harvested;
@@ -42,5 +42,5 @@ public abstract class Crop implements Produce {
         return hasBeenFertilized();
     }
 
-    public abstract Edible yield();
+    public abstract T yield();
 }

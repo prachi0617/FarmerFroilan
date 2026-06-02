@@ -1,8 +1,6 @@
 package com.zipcodewilmington.froilansfarm.crop;
 
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
-
-public class TomatoPlant extends Crop {
+public class TomatoPlant extends Crop<Tomato> {
 
     public TomatoPlant() {
         super(false, false);
@@ -13,7 +11,7 @@ public class TomatoPlant extends Crop {
     }
 
     @Override
-    public Edible yield() {
+    public Tomato yield() {
         if (hasBeenFertilized() && hasBeenHarvested()) {
             return new Tomato();
         }

@@ -6,19 +6,19 @@ import java.util.List;
 
 public class Field {
 
-    private final List<CropRow<? extends Crop>> rows = new ArrayList<>();
+    private final List<CropRow<? extends Crop<?>>> rows = new ArrayList<>();
 
-    public <T extends Crop> void addRow(CropRow<T> row) {
+    public <T extends Crop<?>> void addRow(CropRow<T> row) {
         if (row != null) {
             rows.add(row);
         }
     }
 
-    public List<CropRow<? extends Crop>> getRows() {
+    public List<CropRow<? extends Crop<?>>> getRows() {
         return new ArrayList<>(rows);
     }
 
-    public List<CropRow<? extends Crop>> getCropRows() {
+    public List<CropRow<? extends Crop<?>>> getCropRows() {
         return getRows();
     }
 }

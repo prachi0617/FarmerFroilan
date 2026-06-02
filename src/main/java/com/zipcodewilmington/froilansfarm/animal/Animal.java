@@ -6,20 +6,20 @@ import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Animal implements NoiseMaker, Eater {
+public abstract class Animal<T extends Edible> implements NoiseMaker, Eater<T> {
 
     private boolean hasEaten;
-    private final List<Edible> meals = new ArrayList<>();
+    private final List<T> meals = new ArrayList<>();
 
     @Override
-    public void eat(Edible edible) {
+    public void eat(T edible) {
         if (edible != null) {
             this.hasEaten = true;
             meals.add(edible);
         }
     }
 
-    public List<Edible> getMealsEaten() {
+    public List<T> getMealsEaten() {
         return new ArrayList<>(meals);
     }
 

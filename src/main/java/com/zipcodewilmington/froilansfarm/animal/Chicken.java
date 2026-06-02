@@ -3,7 +3,7 @@ package com.zipcodewilmington.froilansfarm.animal;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 
-public class Chicken extends Animal implements Produce {
+public class Chicken extends Animal<Edible> implements Produce<Egg> {
 
     private boolean fertilized;
 
@@ -21,7 +21,7 @@ public class Chicken extends Animal implements Produce {
     }
 
     @Override
-    public Edible yield() {
+    public Egg yield() {
         if (fertilized) {
             return null;
         }

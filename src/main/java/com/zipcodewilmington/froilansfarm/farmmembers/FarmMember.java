@@ -5,7 +5,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.Person;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
-public abstract class FarmMember implements Person, Rider {
+public abstract class FarmMember implements Person<Edible>, Rider {
 
     private final String name;
     private boolean hasEaten;
